@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-ios-plugin-no-export-compliance@0.0.5",
+  "_id": "cordova-ios-plugin-no-export-compliance@0.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-oHa+SmsMJ4xo4uOgXoQHa7hE0C+I/MSYNxNQYXktVTx8czMpXqV5OnZbTUE/kA4qM/l7XDdxRPeVL8SxIPmA7A==",
+  "_location": "/cordova-ios-plugin-no-export-compliance",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-ios-plugin-no-export-compliance@0.0.5",
+    "name": "cordova-ios-plugin-no-export-compliance",
+    "escapedName": "cordova-ios-plugin-no-export-compliance",
+    "rawSpec": "0.0.5",
+    "saveSpec": null,
+    "fetchSpec": "0.0.5"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-ios-plugin-no-export-compliance/-/cordova-ios-plugin-no-export-compliance-0.0.5.tgz",
+  "_shasum": "1768b5d5df931bf372e91d39bb9e1390e19da2ac",
+  "_spec": "cordova-ios-plugin-no-export-compliance@0.0.5",
+  "_where": "E:\\ionic\\VerveCommerce\\NewDev\\mtst-app",
+  "author": {
+    "name": "mikaoelitiana"
+  },
+  "bugs": {
+    "url": "https://github.com/mikaoelitiana/cordova-ios-plugin-no-export-compliance/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-ios-plugin-no-export-compliance",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin sets ITSAppUsesNonExemptEncryption to false in *-Info.plist file",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/mikaoelitiana/cordova-ios-plugin-no-export-compliance#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "license": "BSD-3",
+  "name": "cordova-ios-plugin-no-export-compliance",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaoelitiana/cordova-ios-plugin-no-export-compliance.git"
+  },
+  "version": "0.0.5"
+}

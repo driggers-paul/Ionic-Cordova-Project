@@ -1,0 +1,17 @@
+<div class="update">
+    <div class="photos">
+        <div *ngIf="update.picture_front" class="thumbnail" (click)="openZoomImg(update.picture_front)">
+            <img [src]="update.picture_front" />
+        </div>
+        <div *ngIf="update.picture_back" class="thumbnail" (click)="openZoomImg(update.picture_back)">
+            <img [src]="update.picture_back" />
+        </div>
+        <div *ngIf="update.picture_side" class="thumbnail" (click)="openZoomImg(update.picture_side)">
+            <img [src]="update.picture_side" />
+        </div>
+    </div>
+    <div *ngIf="expanded && hasExpandibles" padding>
+        <ion-button *ngIf="update.video_url" (click)="viewVideo()" color="primary" expand="full" class="video-link"><ion-icon name="videocam" slot="start"></ion-icon> View Update Video</ion-button>
+        <div *ngIf="update.text" class="update-text" [innerText]="update.text"></div>
+    </div>
+</div>

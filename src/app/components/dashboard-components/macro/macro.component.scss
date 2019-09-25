@@ -1,0 +1,62 @@
+.calories div:first-child {
+  color: var(--ion-1p-calorie-color);
+}
+
+.protein div:first-child {
+  color: var(--ion-1p-protein-color);
+}
+
+.fats div:first-child {
+  color: var(--ion-1p-fat-color);
+}
+
+.carbs div:first-child {
+  color: var(--ion-1p-carb-color);
+}
+
+.content p {
+  margin: 0;
+  color: #999;
+  font-weight: bold;
+  font-size: 70%;
+  text-transform: uppercase;
+
+  em, span {
+    text-transform: lowercase;
+  }
+}
+
+div > div:first-child {
+  font-size: 225%;
+  font-weight: 900;
+}
+
+.goal-bar {
+  width: 100%;
+  margin: 10px 0;
+  height: 5px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(0,0,0, 0.1);
+
+  .progress {
+    width: 0;
+    height: 12px;
+  }
+}
+
+.calories .progress {
+  background: var(--ion-1p-calorie-color);
+}
+
+.fats .progress {
+  background: var(--ion-1p-fat-color);
+}
+
+.carbs .progress {
+  background: var(--ion-1p-carb-color);
+}
+
+.protein .progress {
+  background: var(--ion-1p-protein-color);
+}

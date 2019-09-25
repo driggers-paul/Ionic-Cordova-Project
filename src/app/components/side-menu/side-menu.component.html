@@ -1,0 +1,92 @@
+<ion-menu side="start" contentId="content" *ngIf="showMenu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <!-- Transphormer -->
+      <ion-list-header>My Transphormation</ion-list-header>
+      <ion-item (click)="goTo('dashboard')">
+        <ion-button fill="clear">
+          <ion-icon name="home"></ion-icon>
+          Dashboard
+        </ion-button>
+      </ion-item>
+      <ion-item (click)="goTo('announcements')">
+        <ion-button fill="clear">
+          <ion-icon name="ios-paper"></ion-icon>
+          Announcements
+        </ion-button>
+        <ion-badge slot="end" color="primary" *ngIf="transphormerHasAnnouncements">{{ transphormerHasAnnouncements }}</ion-badge>
+      </ion-item>
+      <ion-item (click)="goTo('modal-test')" *ngIf="isMobile">
+        <ion-button fill="clear">
+          <ion-icon name="camera"></ion-icon>
+          Modal-Test
+        </ion-button>
+      </ion-item>
+      <!-- Trainer -->
+      <div *ngIf="isTrainer">
+        <ion-list-header>Transphormation Advisor</ion-list-header>
+        <ion-item (click)="goTo('invite')">
+          <ion-button fill="clear">
+            <ion-icon name="link"></ion-icon>
+            My Invite URL
+          </ion-button>
+        </ion-item>
+        <ion-item (click)="goTo('my-transphormers')">
+          <ion-button fill="clear">
+            <ion-icon name="people"></ion-icon>
+            My Transphormers
+          </ion-button>
+        </ion-item>
+        <ion-item (click)="goTo('trainer-messages')">
+          <ion-button fill="clear">
+            <ion-icon name="mail"></ion-icon>
+            Message Center
+          </ion-button>
+          <ion-badge slot="end" color="primary" *ngIf="advisorHasMessages">{{ advisorMessageCount }}</ion-badge>
+        </ion-item>
+        <ion-item (click)="goTo('trainer-announcements')">
+          <ion-button fill="clear">
+            <ion-icon name="megaphone"></ion-icon>
+            My Announcements
+          </ion-button>
+        </ion-item>
+        <ion-item (click)="goTo('trainer-applications')">
+          <ion-button fill="clear">
+            <ion-icon name="hand"></ion-icon>
+            Transphormer Requests
+          </ion-button>
+        </ion-item>
+        <ion-item (click)="goTo('trainer-registration')">
+          <ion-button fill="clear">
+            <ion-icon name="list-box"></ion-icon>
+            My Advisor Profile
+          </ion-button>
+        </ion-item>
+      </div>
+
+      <!-- Config -->
+      <ion-list-header>Config</ion-list-header>
+      <ion-item (click)="goTo('account-settings')">
+        <ion-button fill="clear"><ion-icon name="settings"></ion-icon> Settings</ion-button>
+      </ion-item>
+      <ion-item (click)="goTo('help-support')">
+        <ion-button fill="clear"><ion-icon name="help-buoy"></ion-icon> Help & Support</ion-button>
+      </ion-item>
+      <ion-item (click)="goTo('change-password')">
+        <ion-button fill="clear">
+          <ion-icon name="finger-print"></ion-icon>
+          Change Password
+        </ion-button>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-button fill="clear"><ion-icon name="power"></ion-icon> Logout</ion-button>
+      </ion-item>
+      <small class="build-info">{{ buildInfo }}</small>
+    </ion-list>
+  </ion-content>
+</ion-menu>

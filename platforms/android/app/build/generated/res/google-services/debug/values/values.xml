@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">502937920884-8n55se8gv9h2fsp41pk43e659u73jugv.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://mtst-1p.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">502937920884</string>
+    <string name="google_api_key" translatable="false">AIzaSyBKiGIG-KHk27O-5MifnNgYQFdIMa-mIiU</string>
+    <string name="google_app_id" translatable="false">1:502937920884:android:cd41f9d329045ce1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBKiGIG-KHk27O-5MifnNgYQFdIMa-mIiU</string>
+    <string name="google_storage_bucket" translatable="false">mtst-1p.appspot.com</string>
+    <string name="project_id" translatable="false">mtst-1p</string>
+</resources>

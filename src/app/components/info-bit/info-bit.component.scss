@@ -1,0 +1,29 @@
+.bit {
+  margin: 8px 4px;
+  display: flex;
+  min-width: 25%;
+  flex-direction: column;
+}
+.bottom {
+  font-size: 70%;
+  text-transform: uppercase;
+  color: var(--ion-1p-gray);
+  font-weight: bolder;
+}
+.top {
+  font-size: 70%;
+  text-transform: uppercase;
+  color: var(--ion-1p-darkest);
+  font-weight: bolder;
+}
+.middle {
+  font-size: 150%;
+  font-weight: bold;
+  padding: 0 4px;
+}
+.small {
+  .middle {
+    font-size: 135%;
+    line-height: 1.4em;
+  }
+}

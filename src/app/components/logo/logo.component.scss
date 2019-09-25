@@ -1,0 +1,14 @@
+.logo {
+  width: 100px;
+  height: 100px;
+  filter: invert(1);
+  margin: 20px auto;
+
+  img {
+    display: block;
+    padding: 10px 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}

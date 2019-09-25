@@ -1,0 +1,49 @@
+ion-icon {
+  font-size: 36px;
+}
+
+ion-toolbar {
+  --padding-top: 0;
+  --padding-bottom:0;
+}
+
+.bottom-menu {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .inline-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+
+  ion-button {
+    height: 40px;
+    --border: none;
+    --padding: 0;
+    margin: 0;
+    --color: var(--ion-color-brand);
+  }
+
+  .caption {
+    color: var(--ion-1p-lightest);
+    text-transform: capitalize;
+    font-size: 12px;
+  }
+}
+
+.unread-advisor {
+  position: absolute;
+  right: 0;
+  top: 1px;
+}
+
+.unread-transphormer {
+  position: absolute;
+  right: 0;
+  top: 1px;
+  font-size: 20px;
+}

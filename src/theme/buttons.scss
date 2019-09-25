@@ -1,0 +1,47 @@
+ion-button {
+  --border-width: 4px;
+  --box-shadow: 0;
+  --border-radius: 0;
+  --font-weight: 900;
+  font-weight: var(--font-weight);
+  --letter-spacing: 0;
+  letter-spacing: var(--letter-spacing);
+  --text-transform: uppercase;
+  text-transform: var(--text-transform);
+
+  &[shape="round"] {
+    --border-radius: 100px;
+    --padding-start: 0.75em;
+    --padding-end: 0.75em;
+    .button-native {
+      padding-left: var(--padding-start);
+      padding-right: var(--padding-end);
+    }
+  }
+
+  &[fill="outline"] {
+    --border-width: 4px;
+    &.button-full .button-native {
+      border-width-right: var(--border-width);
+      border-width-left: var(--border-width);
+    }
+  }
+
+  &[size="large"] {
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+  }
+  &.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+ion-button[expand="full"][fill="outline"] {
+  border-color: var(--ion-color-base);
+  border-right-style: solid;
+  border-left-style: solid;
+  border-right-width: var(--border-width);
+  border-left-width: var(--border-width);
+  --padding-end: 16px;
+}

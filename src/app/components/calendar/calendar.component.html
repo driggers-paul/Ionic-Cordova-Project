@@ -1,0 +1,18 @@
+<div class="calendar-container inline">
+  <ion-button fill="clear" (click)="subDay()" [disabled]="isMinDate">
+    <ion-icon name="arrow-round-back"></ion-icon>
+  </ion-button>
+  <div class="title inline" (click)="openCalendar()">
+      <ion-icon name="calendar"></ion-icon>
+      <span>{{ currentDay ? 'Today' : dateTime.format(this.format || 'YYYY/MM/DD') }}</span>
+    <div class="calendar-content">
+<input [owlDateTimeTrigger]="dt" [owlDateTime]="dt" [max]="maxDate" [min]="minDate" #dtInput [(ngModel)]="dateTime" (dateTimeChange)="dateChanged()"
+onkeydown="return false" readonly>
+      <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
+    </div>
+
+  </div>
+  <ion-button fill="clear" (click)="addDay()" [disabled]="isMaxDate">
+    <ion-icon name="arrow-round-forward"></ion-icon>
+  </ion-button>
+</div>

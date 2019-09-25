@@ -1,0 +1,55 @@
+
+.card {
+  background-color: var(--ion-1p-lightest);
+  padding: 16px 24px;
+  margin-top: 12px;
+  .header {
+    font-weight: bold;
+    color: var(--ion-1p-darkest);
+    display: flex;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    justify-content: space-between;
+
+    span {
+      color: var(--ion-color-danger);
+    }
+  }
+}
+.dim {
+  color: #999;
+}
+.macros {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  //margin-bottom: 24px;
+  div > div:nth-child(2) {
+    color: #999;
+    font-weight: bold;
+    font-size: 70%;
+    text-transform: uppercase;
+    em {
+      text-transform: lowercase;
+    }
+  }
+  > div {
+    padding: 4px;
+  }
+  div > div:first-child {
+    font-size: 150%;
+    font-weight: 900;
+  }
+  .calories div:first-child {
+    color: var(--ion-1p-calorie-color);
+  }
+  .protein div:first-child {
+    color: var(--ion-1p-protein-color);
+  }
+  .fats div:first-child {
+    color: var(--ion-1p-fat-color);
+  }
+  .carbs div:first-child {
+    color: var(--ion-1p-carb-color);
+  }
+}

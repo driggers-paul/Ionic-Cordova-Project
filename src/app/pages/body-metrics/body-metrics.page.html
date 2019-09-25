@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Weigh-ins</ion-title>
+    <ion-buttons slot="start">
+      <app-menu-button></app-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" fill="clear" (click)="goToAddWeighIn()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="heading" margin-bottom *ngIf="weights.length > 1">
+    {{ weights[weights.length - 1].weight }} lbs
+    <ion-icon name="arrow-round-forward"></ion-icon>
+    {{ weights[0].weight }} lbs
+  </div>
+
+  <div class="heading" margin-bottom *ngIf="weights.length === 1">
+    {{ weights[0].weight }} lbs
+    <ion-icon name="arrow-round-forward"></ion-icon>
+    {{ weights[0].weight }} lbs
+  </div>
+
+  <div class="heading" margin-bottom *ngIf="weights.length === 0">
+    No weigh-ins to see. Log one!
+  </div>
+
+  <app-chart margin-vertical [weights]="weights"></app-chart>
+  <ion-list margin-top>
+    <ion-item *ngFor="let weight of weights; let i = index; last as isLast" (click)="goToEditWeight(weight)">
+      <ion-label>{{ weight.weight }} lbs <span class="diff" *ngIf="!isLast">({{ diffInWeight(i) > 0 ? '+' : '' }}{{ diffInWeight(i) }} {{ Math.abs(diffInWeight(i)) > 1 ? 'lbs' : 'lb'}})</span></ion-label>
+      <span class="time">{{ weight.logged_on.local().fromNow() }}</span>
+      <ion-button fill="clear" type="button">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

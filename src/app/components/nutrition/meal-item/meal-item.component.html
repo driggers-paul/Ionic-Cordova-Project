@@ -1,0 +1,47 @@
+<ng-container *ngIf="meal">
+  <div class="row">
+    <div class="col-1"><span class="values">{{ meal.meal_count }}</span></div>
+    <div class="col-2"><span class="values" [class.calories-color]="calories">{{ hasValue ? calories.toFixed(0) : '-' }}</span></div>
+    <div class="col-2"><span class="values" [class.protein-color]="protein">{{ hasValue ? protein.toFixed(0): '-' }}</span></div>
+    <div class="col-2"><span class="values" [class.carbs-color]="carbs">{{ hasValue ? carbs.toFixed(0) : '-' }}</span></div>
+    <div class="col-2"><span class="values" [class.fat-color]="fats">{{ hasValue ? fats.toFixed(0) : '-' }}</span></div>
+    <div class="col-space" (click)="showFoodItems = !showFoodItems">
+      <ion-button fill="clear" *ngIf="meal.active" class="show-more">
+        <ion-icon [name]="showFoodItems ? 'arrow-down' : 'arrow-forward'" mode="ios"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  <div class="content" *ngIf="showFoodItems && meal.food_items.length > 0">
+    <div class="row" *ngFor="let foodItem of meal.food_items; let foodItemIndex = index;">
+      <div class="col-1"><span class="values">{{ foodItem.name }}</span></div>
+      <div class="col-2"><span class="values">{{ foodItem.calories.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="values">{{ foodItem.protein.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="values">{{ foodItem.carbs.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="values">{{ foodItem.fats.toFixed(0) }}</span></div>
+      <div class="col-space">
+        <ion-button fill="clear" (click)="openEditFoodItem(foodItem, foodItemIndex)" class="edit-item">
+          <ion-icon name="create" mode="md"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <div class="add-food">
+            <ion-button expand="full" fill="clear" (click)="saveAsMealTemplate()">
+              Save As Meal
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="add-food">
+            <ion-button expand="full" fill="clear" (click)="addFoodItem()">
+              <ion-icon name="add"></ion-icon> Add Food
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ng-container>
+

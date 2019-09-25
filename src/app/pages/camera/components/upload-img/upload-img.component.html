@@ -1,0 +1,38 @@
+<section class="global-container">
+  <div class="upload-img">
+    <div class="inline">
+      <div class="thumbnail">
+        <img [src]="frontImageSource">
+        <h6 class="caption">Front Image</h6>
+      </div>
+      <div class="thumbnail">
+        <img [src]="backImageSource">
+        <h6 class="caption">Back Image</h6>
+      </div>
+      <div class="thumbnail">
+        <img [src]="sideImageSource">
+        <h6 class="caption">Side Image</h6>
+      </div>
+    </div>
+    <div *ngIf="!hideExtraFields" class="global-input global-margin-top-30">
+      <ion-label stacked>Update Video URL (optional)</ion-label>
+      <ion-input [value]="video" (input)="video=$event.target.value"></ion-input>
+      <p></p>
+    </div>
+    <div *ngIf="!hideExtraFields" class="global-input global-margin-top-30">
+      <ion-label stacked>Progress comments (optional)</ion-label>
+      <ion-textarea autocapitalize="on" [value]="text" (input)="text=$event.target.value"></ion-textarea>
+    </div>
+    <div class="btn">
+      <div *ngIf="!hideExtraFields" class="global-center-btn global-margin-top-15">
+        <ion-button type="submit" (click)="moveToNextScreen()">Submit Photos & Update</ion-button>
+      </div>
+      <div *ngIf="hideExtraFields" class="global-center-btn global-margin-top-15">
+        <ion-button type="submit" (click)="moveToNextScreen()">Submit Photos</ion-button>
+      </div>
+      <div class="global-center-btn global-margin-top-15">
+        <ion-button (click)="prevScreen()" type="submit" color="danger">Start over</ion-button>
+      </div>
+    </div>
+  </div>
+</section>

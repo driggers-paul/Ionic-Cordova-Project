@@ -1,0 +1,14 @@
+<div>
+  <div [hidden]="!hasLiveStreamUrl" class="video-container">
+    <video #videoElement class="video-js vjs-liveui vjs-16-9 vjs-default-skin" >
+    </video>
+  </div>
+  <div *ngIf="!hasLiveStreamUrl" class="loading">
+    <div><h4>Connecting...</h4></div>
+    <div>
+      <p>
+        <ion-spinner color="primary" name="circles"></ion-spinner>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.header {
+  h5 {
+    text-align: center;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  ion-button {
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+}
+
+.body {
+  --ion-padding: 5px;
+}

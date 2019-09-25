@@ -1,0 +1,28 @@
+// http://ionicframework.com/docs/theming/
+//@import "~@ionic/angular/css/core.css";
+//@import "~@ionic/angular/css/normalize.css";
+//@import "~@ionic/angular/css/structure.css";
+//@import "~@ionic/angular/css/typography.css";
+//@import "~@ionic/angular/css/padding.css";
+//@import "~@ionic/angular/css/float-elements.css";
+//@import "~@ionic/angular/css/text-alignment.css";
+//@import "~@ionic/angular/css/text-transformation.css";
+//@import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/variables.scss";
+
+@import "~@ionic/core/dist/collection/css/core.scss";
+@import "~@ionic/core/dist/collection/css/normalize.scss";
+@import "~@ionic/core/dist/collection/css/structure.scss";
+@import "~@ionic/core/dist/collection/css/typography.scss";
+@import "~@ionic/core/dist/collection/css/padding.scss";
+@import "~@ionic/core/dist/collection/css/float-elements.scss";
+@import "~@ionic/core/dist/collection/css/text-alignment.scss";
+@import "~@ionic/core/dist/collection/css/text-transformation.scss";
+@import "~@ionic/core/dist/collection/css/flex-utils.scss";
+@import "~@ionic/core/dist/collection/components/card/card";
+//@import "./theme/variables.scss";
+@import "./theme/typography.scss";
+@import "./theme/buttons.scss";
+@import "./theme/style.scss";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+

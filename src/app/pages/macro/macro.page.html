@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-menu-button></app-menu-button>
+    </ion-buttons>
+    <ion-title>Nutrition</ion-title>
+    <ion-buttons slot="end">
+      <button class="logo-button" ion-button right>
+        <div class="tb-logo"></div>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="transphormer && currentWeight && macroCountingInfo">
+
+  <!-- Calories component -->
+
+  <app-progress-bar [currentValue]="calories" dangerColor="red" [goalValue]="activeBmrValues.calories"
+                    hideTextBarrierRemaining="78"
+                    hideTextBarrierProgress="10"></app-progress-bar>
+
+  <!-- Macros Component -->
+  <ion-item lines="none">
+    <ion-label>
+      Macros
+      <ion-button fill="clear" class="edit-macro" (click)="openCustomMacro()">
+        <ion-icon name="create" mode="md"></ion-icon>
+      </ion-button>
+    </ion-label>
+    <ion-label class="right">
+      <span class="color">Remaining</span>
+    </ion-label>
+  </ion-item>
+  <div class="inline">
+    <app-macros categoryName="protein" [goalValue]="activeBmrValues.protein"
+                [currentNutritionValue]="protein"
+                dangerColor="red"
+                barColor="#fba04b"></app-macros>
+    <app-macros categoryName="carbs" [goalValue]="activeBmrValues.carbs" [currentNutritionValue]="carbs"
+                dangerColor="red"
+                barColor="#12c112"></app-macros>
+    <app-macros categoryName="fats" [goalValue]="activeBmrValues.fats" barColor="#f96c85" dangerColor="red"
+                [currentNutritionValue]="fats"></app-macros>
+  </div>
+
+  <!-- Water Component  -->
+  <ion-item lines="none">
+    <ion-label>Water</ion-label>
+  </ion-item>
+  <app-water [currentValue]="macroCountingInfo.water_amount" dangerColor="red"
+             [totalValue]="nutritionCalculator.waterIntake(currentWeight.weight)"
+             (waterSelected)="updateWaterAmount($event)"></app-water>
+
+  <!-- Calendar tab -->
+  <app-calendar [dateTime]="date" (dateChange)="resetMacroInfoForDate($event)"></app-calendar>
+
+  <!-- Add Food -->
+  <div class="add-food">
+    <ion-button expand="full" fill="clear" (click)="openAddFoodModal()" *ngIf="canAddFood">
+      <ion-icon name="add"></ion-icon>
+      Add Food
+    </ion-button>
+  </div>
+
+  <!-- Meal List -->
+
+  <app-meal-list [nutritionDayId]="macroCountingInfo.id" [meals]="meals"
+                 (mealUpdated)="updateMeal($event)"></app-meal-list>
+  <div class="total">
+    <div class="row">
+      <div class="col-1"><span class="title">Total</span></div>
+
+      <div class="col-2"><span class="title calories">{{ calories.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title protein-color">{{ protein.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title carbs-color">{{ carbs.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title fat-color">{{ fats.toFixed(0) }}</span></div>
+      <div class="col-space"></div>
+    </div>
+    <div class="row">
+      <div class="col-1"><span class="title">Goal</span></div>
+      <div class="col-2"><span class="title calories">{{ activeBmrValues.calories.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title protein-color">{{ activeBmrValues.protein.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title carbs-color">{{ activeBmrValues.carbs.toFixed(0) }}</span></div>
+      <div class="col-2"><span class="title fat-color">{{ activeBmrValues.fats.toFixed(0) }}</span></div>
+      <div class="col-space"></div>
+    </div>
+  </div>
+
+
+</ion-content>

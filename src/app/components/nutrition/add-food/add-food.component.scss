@@ -1,0 +1,280 @@
+.header {
+  padding: 40px 15px 15px;
+
+  .close {
+    color: #999;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    font-size: 20px;
+  }
+
+  .title {
+    text-align: center;
+    text-transform: uppercase;
+    align-self: center;
+    font-weight: 900;
+  }
+}
+
+.add-food {
+  padding: 0 12px;
+  font-weight: 900;
+
+  .search {
+    display: flex;
+    align-items: center;
+  }
+
+  .get-started {
+    text-align: center;
+    margin-top: 150px;
+    color: #999;
+
+    .title {
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    span {
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+
+  ion-searchbar {
+    --background: #262626;
+    --placeholder-color: #fff;
+    height: 40px;
+    border-radius: 0;
+    caret-color: #ffffff;
+    color: #ffffff;;
+
+    &.searching {
+      --background: #ffffff;
+      caret-color: #000000;
+      color: #000000;
+    }
+  }
+
+  ion-input {
+    --background: #f4f4f4;
+    text-align: center;
+    font-weight: 900;
+  }
+
+  ion-label {
+    font-size: 14px;
+    font-weight: 900;
+  }
+}
+
+.edit-food {
+  padding: 10px;
+  height: calc(500px - 75px);
+  overflow-y: scroll;
+
+  // force showing scroll bar to dictate that page has scrollable content
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+
+  .macros {
+    .category {
+      text-align: center;
+      margin: 0 5px;
+
+      span {
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .select {
+    padding: 5px 12px;
+  }
+
+  ion-select {
+    background: #f4f4f4;
+    text-align: center;
+  }
+
+  .meal {
+    ion-button {
+      padding: 2px;
+      color: #999;
+      font-size: 20px;
+      --background: #f4f4f4;
+    }
+
+    .active {
+      --background: #000;
+      color: #fff;
+    }
+  }
+
+  .food-name {
+    font-weight: 500;
+  }
+
+  .bottom-btn {
+    margin-top: 10px;
+    position: absolute;
+    width: 90%;
+    bottom: 10px;
+
+    ion-button {
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-listing {
+  ul {
+    margin: 0 10px;
+    box-shadow: 1px 1px 5px 4px #e3e3e3;
+    list-style: none;
+    height: 35vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 25px;
+    padding-top: 10px;
+  }
+
+  li {
+    font-weight: 900;
+    padding: 5px 0;
+    color: #4c4c4c;
+    text-transform: capitalize;
+
+    &.meal-template ion-icon {
+      color: var(--ion-color-brand);
+      font-size: 30px;
+      float: right;
+      position: relative;
+      left: 20px;
+    }
+
+    .category {
+      font-weight: 100;
+      font-size: 12px;
+      display: block;
+    }
+  }
+}
+
+.around-this-time {
+  padding: 20px 10px;
+
+  .title {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #b2b2b2;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  li {
+    margin: 10px 0;
+
+    .food-name {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .food-quantity {
+      font-weight: 100;
+      font-size: 12px;
+      padding: 2px 0;
+    }
+
+    &.meal-template {
+      > span {
+        display: block;
+      }
+
+      ion-icon {
+        float: right;
+        color: var(--ion-color-brand);
+        font-size: 30px;
+      }
+    }
+  }
+
+  button .title {
+    color: #1fb2d2;
+  }
+}
+
+button {
+  background: #f2f2f2;
+  height: 56px;
+  width: 100%;
+
+  .title {
+    font-size: 14px;
+    color: #1ba9cc;
+    font-weight: 900;
+  }
+
+  .tag {
+    font-weight: 100;
+    font-size: 12px;
+    padding: 3px 0;
+    line-height: 20px;
+  }
+}
+
+.other-listing {
+  height: calc(500px - 160px);
+  overflow-y: scroll;
+}
+
+@media (max-width: 1024px) {
+  .other-listing {
+    height: calc(600px - 160px);
+  }
+
+  .edit-food {
+    height: calc(600px - 75px);
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 415px) {
+  .other-listing {
+    height: calc(100vh - 160px);
+  }
+
+  .edit-food {
+    height: calc(100vh - 75px);
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .edit-food {
+    height: calc(100vh - 75px);
+    overflow-y: scroll;
+  }
+}

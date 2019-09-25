@@ -1,0 +1,37 @@
+.update {
+  display: flex;
+  flex-direction: column;
+  .photos {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.thumbnail {
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
+  }
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100%;
+  }
+}
+
+.update-text {
+  white-space: pre-line;
+}
+
+@media screen and (max-width: 768px) {
+  .thumbnail {
+    height: auto;
+
+    img {
+      height: auto;
+    }
+  }
+}

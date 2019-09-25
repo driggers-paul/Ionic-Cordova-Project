@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <app-menu-button></app-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]='form' (ngSubmit)="updateAccountSetting()">
+    <ion-list>
+      <ion-list-header>Reminders</ion-list-header>
+      <ion-item>
+        <ion-label>Photo Reminders</ion-label>
+        <ion-select okText="Okay" cancelText="Dismiss" formControlName='photo_reminder'>
+          <ion-select-option [value]="1">Every week</ion-select-option>
+          <ion-select-option [value]="2">Every 2 weeks</ion-select-option>
+          <ion-select-option [value]="3">Every 3 weeks</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Weigh in Reminders</ion-label>
+        <ion-select formControlName="weigh_reminder" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="null">Never</ion-select-option>
+          <ion-select-option [value]="1">Every week</ion-select-option>
+          <ion-select-option [value]="2">Every 2 weeks</ion-select-option>
+          <ion-select-option [value]="3">Every 3 weeks</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Workout Reminders</ion-label>
+        <ion-toggle slot="end" formControlName="workout_reminder"></ion-toggle>
+      </ion-item>
+      <ion-item *ngIf="form.get('workout_reminder').value === true">
+        <ion-label>What Time?</ion-label>
+        <ion-datetime displayFormat="hh:mm A" formControlName="what_time"></ion-datetime>
+      </ion-item>
+      <ion-list-header>Notifications</ion-list-header>
+      <ion-item>
+        <div>
+          <ion-label>New Chat Messages</ion-label>
+          <span class="description">Get notification of new chat messages from your Transphormation Advisor.</span>
+        </div>
+        <ion-toggle slot="end" formControlName="receive_email"></ion-toggle>
+      </ion-item>
+      <ion-item text-wrap>
+        <div>
+          <ion-label>Announcements</ion-label>
+          <span class="description">Get notified of new announcements from your Transphormation Advisor.</span>
+        </div>
+        <ion-toggle slot="end" formControlName="receive_notification"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <ion-item text-wrap>
+      <div>
+        <ion-label>Livestreams</ion-label>
+        <span class="description">Get notifications for Livestreams.</span>
+      </div>
+      <ion-toggle slot="end" formControlName="receive_livestream_notification"></ion-toggle>
+    </ion-item>
+    <ion-button type="submit" padding color="primary" expand="full">Update</ion-button>
+  </form>
+</ion-content>

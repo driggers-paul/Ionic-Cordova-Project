@@ -1,0 +1,14 @@
+<ion-item lines="none">
+  <ion-label>Calories</ion-label>
+  <ion-label class="right">
+    <span class="color">Goal</span>
+    <span [ngStyle]="{'background-color': (percentage > 100 ? dangerColor : 'inherit')}">{{ goalValue.toFixed(0)}}</span>
+  </ion-label>
+</ion-item>
+<div class="goal-bar" [ngStyle]="{'background-color': changeBarColor}">
+  <p class="goal-value"
+     [class.hide]="percentage > hideTextBarrierRemaining"> {{ remainingValue.toFixed(0) }}</p>
+  <div class="progress" [ngStyle]="{'width': percentage+ '%','background-color': changeBarColor}">
+    <p class="progress-value" [class.hide]="percentage < hideTextBarrierProgress">{{ currentValue.toFixed(0) }}</p>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "name": "mtst",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "594e0506"
+}

@@ -1,0 +1,7 @@
+<div class="bit" [ngClass]="extraClass">
+  <div class="top">{{ top }}</div>
+  <div class="middle">
+    {{middle}}<ng-content select=".middle"></ng-content>
+  </div>
+  <div class="bottom">{{ bottom }}</div>
+</div>

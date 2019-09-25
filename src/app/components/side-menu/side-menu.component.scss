@@ -1,0 +1,51 @@
+ion-list {
+  --background: var(--ion-1p-light-bg);
+  background: var(--ion-1p-light-bg);
+  text-transform: uppercase;
+  padding-top: var(--default-margin);
+}
+
+ion-list-header {
+  --background: inherit;
+  --font-weight: inherit;
+  font-size: 1.25rem;
+  font-family: var(--ion-1p-font-dominant);
+  color: var(--ion-1p-lightest);
+}
+
+ion-item {
+  --background: inherit;
+  --border-color: transparent;
+  --padding-start: calc(var(--default-margin) * 2);
+  --padding-end: var(--default-margin);
+  ion-button {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --font-weight: 600;
+    color: var(--ion-1p-lightest);
+  }
+}
+
+ion-icon {
+  --padding-end: 0.5em;
+  color: var(--ion-color-medium);
+  padding-right: var(--padding-end);
+}
+
+ion-button[color="warning"] {
+  ion-icon {
+    color: var(--ion-color-warning-contrast);
+  }
+}
+
+ion-content {
+  --background: var(--ion-1p-light-bg);
+}
+
+.list-md {
+  padding-top: 0;
+}
+
+.ion-list.list-android {
+  margin: 0;
+}

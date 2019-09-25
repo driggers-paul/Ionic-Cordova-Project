@@ -1,0 +1,122 @@
+{
+  "_from": "cordova-plugin-ionic@^5.4.0",
+  "_id": "cordova-plugin-ionic@5.4.4",
+  "_inBundle": false,
+  "_integrity": "sha512-N13R+eAxvaXe5hi31iHhaPr7PcJ9z8y21WwU8pTK8N+DfBnp9YFGNtgW8IkWfJXhPBixnz6T1wg9AAQzrZUNcg==",
+  "_location": "/cordova-plugin-ionic",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-ionic@^5.4.0",
+    "name": "cordova-plugin-ionic",
+    "escapedName": "cordova-plugin-ionic",
+    "rawSpec": "^5.4.0",
+    "saveSpec": null,
+    "fetchSpec": "^5.4.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-ionic/-/cordova-plugin-ionic-5.4.4.tgz",
+  "_shasum": "3a57baa3e52f3fce5615750d5d16443fe109acb4",
+  "_spec": "cordova-plugin-ionic@^5.4.0",
+  "_where": "E:\\ionic\\VerveCommerce\\NewDev\\mtst-app",
+  "author": {
+    "name": "Ionic"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/cordova-plugin-ionic/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Max Lynch",
+      "email": "max@ionic.io"
+    },
+    {
+      "name": "William Pelrine",
+      "email": "rudy@ionic.io"
+    }
+  ],
+  "cordova": {
+    "id": "cordova-plugin-ionic",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "typescript": "^3.5.3"
+  },
+  "deprecated": false,
+  "description": "Ionic Cordova SDK",
+  "devDependencies": {
+    "@angular/core": "^7.2.15",
+    "@types/cordova": "0.0.34",
+    "jest": "^22.4.3",
+    "np": "^3.0.4",
+    "rimraf": "^2.6.2",
+    "sync-cordova-xml2": "0.0.2",
+    "ts-jest": "^22.4.2",
+    "tslint": "^5.9.1",
+    "tslint-ionic-rules": "0.0.14",
+    "typedoc": "^0.11.1",
+    "typedoc-plugin-markdown": "^1.1.6",
+    "watch": "^1.0.2"
+  },
+  "homepage": "https://github.com/ionic-team/cordova-plugin-ionic#readme",
+  "issue": "https://github.com/ionic-team/cordova-plugin-ionic/issues",
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      ".(ts)": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "tests/.*\\.(ts|js)$"
+  },
+  "keywords": [
+    "ionic",
+    "cordova",
+    "deploy",
+    "liveupdates",
+    "mobile",
+    "hybrid",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "cordova-plugin-ionic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/cordova-plugin-ionic.git"
+  },
+  "scripts": {
+    "apply-dev": "npm run build && ./apply-changes.sh",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "create-dev": "./create-local-app.sh",
+    "docs": "./scripts/docs.sh",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "precommit": "npm run lint",
+    "prepublishOnly": "npm run build",
+    "release": "npm run build && np --any-branch",
+    "sync-plugin-xml": "sync-cordova-xml2 package.json plugin.xml --output=plugin.xml",
+    "test": "echo 'We should really get unit tests running'",
+    "version": "npm run sync-plugin-xml && git add plugin.xml && ./update-plugin-version-code.sh",
+    "watch": "tsc -w",
+    "watch-dev": "watch 'npm run apply-dev' ./www"
+  },
+  "types": "dist/index.d.ts",
+  "version": "5.4.4"
+}

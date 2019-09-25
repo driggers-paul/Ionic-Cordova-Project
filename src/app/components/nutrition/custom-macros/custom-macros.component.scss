@@ -1,0 +1,254 @@
+.header {
+  margin-bottom: 10px;
+
+  h5 {
+    text-align: center;
+  }
+
+  ion-button {
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+}
+
+h5 {
+  padding-top: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.info {
+  background: #FFF7D3;
+  margin: 0 10px;
+
+  p {
+    font-size: 12px;
+
+    &.did-you-know {
+      font-weight: 600;
+    }
+  }
+
+  ion-button {
+    font-size: 12px;
+
+    &.dont-show-again {
+      --padding-start: 0;
+    }
+
+    &.learn-more {
+      --background: #FDD724;
+    }
+  }
+}
+
+.macro-editing {
+  ion-input {
+    --background: #f4f4f4;
+    font-weight: 900;
+    font-size: 18px;
+
+    &[aria-disabled="true"] {
+      color: black;
+    }
+  }
+
+  .global-input {
+    padding: 0 10px;
+    ion-input {
+      margin-top: 10px;
+    }
+  }
+
+  .macro-inputs {
+    margin-top: 10px;
+
+    > ion-label {
+      padding: 0 10px;
+    }
+
+    .grid {
+      margin-top: 10px;
+    }
+  }
+
+  .row {
+    display: flex;
+    padding: 0 10px;
+    text-align: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+
+    .col {
+      width: 30%;
+
+      ion-label {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
+.protein {
+  color: var(--ion-1p-protein-color);
+}
+
+.fats {
+  color: var(--ion-1p-fat-color);
+}
+
+.carbs {
+  color: var(--ion-1p-carb-color);
+}
+
+.calories {
+  color: var(--ion-1p-calorie-color);
+}
+
+.macro-entry {
+  margin: 16px 0;
+}
+
+.macro-container {
+  display: flex;
+  div {
+    margin-left: 8px;
+    text-align: center;
+    &:first-child {
+      margin-left: 0;
+    }
+    .caption {
+      font-size: var(--ion-1p-font-size-caption);
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--ion-color-text-gray);
+    }
+    ion-input {
+      margin: 6px 0;
+    }
+  }
+}
+
+.history {
+  background: #F2F2F2;
+
+  > div {
+    padding-bottom: 10px;
+  }
+
+  h6 {
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-button {
+      position: absolute;
+      right: 0;
+      top: -2px;
+      font-size: 15px;
+    }
+  }
+
+  .row {
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 20px 0;
+
+    &.values {
+      .col {
+        font-size: 18px;
+      }
+    }
+
+    .col {
+      width: 18%;
+      text-align: center;
+
+      &:first-child {
+        width: 28%;
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      &.macro-date {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 13px;
+
+        sub ion-icon {
+          color: red;
+          position: absolute;
+          bottom: 7px;
+          left: 2px;
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  .heading {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+
+.show-more {
+  background: #E5E5E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  margin: 10px 10px;
+  padding: 15px;
+
+  > * {
+    font-size: 12px;
+  }
+
+  ion-button {
+    height: 20px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.legend {
+  font-size: 12px;
+  padding: 0 10px;
+  margin: 0;
+
+  sub {
+    color: red;
+  }
+}
+
+
+.singe-macro-history {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.hide {
+  display: none;
+}
+
+.custom-actions, .edit-action {
+  margin-top: 35px;
+}
+
+.custom-actions {
+  .row {
+    display: flex;
+    .col {
+      width: 33%;
+    }
+  }
+}

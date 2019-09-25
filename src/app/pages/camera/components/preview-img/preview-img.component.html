@@ -1,0 +1,14 @@
+<div class="preview-img">
+    <h5 class="title">{{title}}</h5>
+    <img [src]="imageSource" class="preview">
+    <div class="preview-buttons">
+        <ion-button color="primary" (click)="moveToNextScreen()">
+            Continue
+            <ion-icon name="arrow-forward" slot="end"></ion-icon>
+        </ion-button>
+        <ion-button color="primary" (click)="prevScreen()">
+            <ion-icon name="undo" slot="start"></ion-icon>
+            Retake
+        </ion-button>
+    </div>
+</div>

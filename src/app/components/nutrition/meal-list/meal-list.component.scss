@@ -1,0 +1,112 @@
+.meal {
+  background-color: #f4f4f4;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 5px 15px;
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 20%;
+  text-align: center;
+}
+
+.col-space {
+  width: 5%;
+  ion-icon {
+    color: #00909a;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+}
+
+.title {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.values {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: #999;
+}
+
+.meal-quantity {
+  .highlight {
+    background-color: #dcdada;
+  }
+  .col-1 {
+    .values {
+      color: #000;
+    }
+  }
+  .col-2 {
+    .values {
+      padding: 0 9px;
+    }
+  }
+}
+
+.content {
+  .row {
+    padding: 4px 15px;
+  }
+  .col-1 {
+    .values {
+      font-size: 8px;
+      font-weight: 600;
+      color: #999;
+    }
+  }
+  .col-2 {
+    .values {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+  .add-food {
+    ion-button {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 10px;
+      color: #1fb2d2;
+    }
+  }
+}
+
+.total {
+  padding: 10px 0;
+  .row {
+    padding: 2px 15px;
+  }
+  .col-2 .title {
+    font-weight: 900;
+    font-size: 12px;
+  }
+}
+
+.calories {
+  color: #1fb2d2;
+}
+
+.protein-color {
+  color: #fba04b;
+}
+
+.carbs-color {
+  color: #12c910;
+}
+
+.fat-color {
+  color: #f8617a;
+}

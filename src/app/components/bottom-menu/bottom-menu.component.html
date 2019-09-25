@@ -1,0 +1,34 @@
+<ion-footer>
+  <ion-toolbar>
+    <div class="bottom-menu inline">
+      <div class="inline-column">
+        <ion-button fill="clear" (click)="goToDashboard()">
+          <ion-icon name="speedometer"></ion-icon>
+        </ion-button>
+        <div class="caption">Dashboard</div>
+      </div>
+      <div class="inline-column">
+        <ion-button fill="clear" (click)="goToWorkouts()">
+          <ion-icon name="walk"></ion-icon>
+        </ion-button>
+        <div class="caption">Workouts</div>
+      </div>
+      <div class="inline-column">
+        <ion-button fill="clear" (click)="goToNutrition()">
+          <ion-icon src="/assets/icon/nutrition.svg"></ion-icon>
+        </ion-button>
+        <div class="caption">Nutrition</div>
+      </div>
+      <div class="inline-column" *ngIf="user">
+        <ion-button fill="clear" (click)="goToMessages()">
+          <ion-icon name="chatboxes"></ion-icon>
+          <ion-badge *ngIf="user.is_trainer && advisorHasMessages" class="unread-advisor" color="secondary">{{ advisorUnreadCount }}</ion-badge>
+          <ion-icon name="radio-button-on" class="unread-transphormer" color="danger" mode="md" *ngIf="!user.is_trainer && transphormerHasMessages"></ion-icon>
+        </ion-button>
+        <div class="caption">Inbox</div>
+      </div>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>
+

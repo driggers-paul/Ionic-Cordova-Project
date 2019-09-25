@@ -1,0 +1,148 @@
+<header class="header">
+  <h5 class="title">
+    Add Food
+    <ion-button float-right size="small" fill="clear" class="close" (click)="closeModal()">
+      <ion-icon name="close" mode="md"></ion-icon>
+    </ion-button>
+  </h5>
+</header>
+
+
+<!-- Add food section -->
+<section class="add-food" *ngIf="!showFoodManagement && !showCustomFoodManagement">
+  <div class="search">
+    <ion-searchbar mode="md" [showCancelButton]="false" placeholder="Search food..." debounce="500"
+                   (ionChange)="searchContentChange()"
+                   animated
+                   (ionFocus)="searchFocused = true"
+                   (ionBlur)="searchFocused = false"
+                   [(ngModel)]="searchValue" [class.searching]="searchValue">
+    </ion-searchbar>
+    <ion-button *ngIf="platform.is('cordova')" fill="solid" color="dark" class="barcode-button"
+                [class.in-android]="platform.is('android')" (click)="scanBarcode()">
+      <ion-icon [slot]="!searchFocused ? 'end' : 'icon-only'" name="barcode"></ion-icon>
+      <span *ngIf="!searchFocused">Scan</span>
+    </ion-button>
+  </div>
+  <div class="add-food" *ngIf="!hasSearchResults">
+    <ion-button expand="full" fill="clear" (click)="showFoodManagement = true">Add your own food</ion-button>
+  </div>
+  <div class="search-listing" *ngIf="hasSearchResults">
+    <ul>
+      <ng-container *ngFor="let result of searchResults.totalFoodList; let i = index">
+        <ng-container *ngIf="(i > 9 && showMore) || (i <= 9)">
+          <ng-container [ngSwitch]="result.type">
+            <li class="custom-food meal-template" *ngSwitchCase="'meal'" tappable
+                (click)="addMealTemplate(result.data)">
+              {{ result.data.name }}
+              <ion-icon name="restaurant"></ion-icon>
+              <span class="category">
+                <span
+                  *ngFor="let item of result.data.items; let last = last">{{ item.name }}{{ last ? '' : ', ' }}</span>
+              </span>
+            </li>
+            <li class="custom-food" *ngSwitchCase="'custom'" tappable (click)="openCustomFood(result.data)">
+              {{ result.data.name }}
+              <span class="category"><b><i>Custom,</i></b> {{result.data.calories}}
+                calories, {{result.data.serving_amount}} {{result.data.serving_unit}}<br></span>
+            </li>
+            <li class="common-food" *ngSwitchCase="'common'" tappable (click)="openCommonFood(result.data)">
+              {{ result.data.food_name }}<br>
+              <span class="category">Common</span>
+            </li>
+            <li class="branded-food" *ngSwitchCase="'branded'" tappable (click)="openBrandedFood(result.data)">
+              {{ result.data.food_name }}<br>
+              <span class="category"><b><i>{{ result.data.brand_name }}</i></b>, {{ result.data.nf_calories.toFixed(0)}}
+                calories, {{ formatNumber(result.data.serving_qty) }} {{ result.data.serving_unit}}</span>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <li>
+        <button *ngIf="searchResults.totalFoodList.length > 10" (click)="showMore = !showMore">
+          <span class="title">Show {{ showMore ? 'Less' : 'More'}}  </span> <br/>
+          <span class="tag">Showing {{ showMore ? searchResults.totalFoodList.length : 10 }}
+            of {{ searchResults.totalFoodList.length }}
+            results</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <!--no recent or around this time result-->
+  <div class="get-started" *ngIf="!hasSearchResults && (recentItems.length === 0 && aroundThisTimeItems.length === 0)">
+    <h6 class="title">Get Started</h6>
+    <span>Search our database of foods or add your own by clicking the button above</span>
+  </div>
+  <!--end no recent or around this time result-->
+
+  <!--around this time and recent result-->
+  <div class="other-listing" *ngIf="!hasSearchResults && (recentItems.length > 0 || aroundThisTimeItems.length > 0)">
+    <!--around this time-->
+    <div class="around-this-time">
+      <h6 class="title">Around This Time</h6>
+      <ul>
+        <ng-container *ngFor="let foodItem of aroundThisTimeItems; let i = index;">
+          <ng-container *ngIf="i <= 2 || (i > 2 && showMoreAroundThisTime)">
+            <ng-container [ngSwitch]="foodItem.type">
+              <li tappable (click)="openRecentFood(foodItem.data)" *ngSwitchCase="'tracked-item'">
+                <span class="food-name">{{ foodItem.data.name }}</span>
+                <br>
+                <span class="food-quantity">{{foodItem.data.serving_size.calories}}
+                  calories {{ foodItem.data.serving_size.amount }} {{ foodItem.data.serving_size.unit }}
+            </span>
+              </li>
+              <li tappable class="meal-template" (click)="addMealTemplate(foodItem.data)" *ngSwitchCase="'meal'">
+                <span>{{ foodItem.data.name }}
+                  <ion-icon name="restaurant"></ion-icon></span>
+                <span class="food-quantity">
+                <span
+                  *ngFor="let item of foodItem.data.items; let last = last">{{ item.name }}{{ last ? '' : ', ' }}</span>
+              </span>
+              </li>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ul>
+      <button (click)="showMoreAroundThisTime = !showMoreAroundThisTime" *ngIf="aroundThisTimeItems.length > 3">
+        <span class="title">Show {{ showMoreAroundThisTime ? 'Less' : 'More'}} </span> <br/>
+        <span class="tag"> Showing {{ showMoreAroundThisTime ? aroundThisTimeItems.length : 3 }}
+          of {{ aroundThisTimeItems.length }}
+          results</span>
+      </button>
+    </div>
+    <!--end around this time-->
+    <!--recent result-->
+    <div class="recent around-this-time">
+      <h6 class="title">Recent</h6>
+      <ul>
+        <ng-container *ngFor="let foodItem of recentItems">
+          <li tappable (click)="openRecentFood(foodItem)">
+            <span class="food-name">{{ foodItem.name }}</span>
+            <br>
+            <span class="food-quantity">{{foodItem.serving_size.calories}}
+              calories {{ foodItem.serving_size.amount }} {{ foodItem.serving_size.unit }}
+            </span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <!--end recent result-->
+  </div>
+</section>
+
+<!-- edit food section -->
+<section class="edit-food" *ngIf="showFoodManagement">
+  <app-custom-food (cancel)="showFoodManagement = false" (foodItemCreated)="updateMealContent($event)"
+                   (mealIndexChanged)="mealIndex = $event" [mealIndex]="mealIndex">
+  </app-custom-food>
+</section>
+
+<section class="edit-food" *ngIf="showCustomFoodManagement">
+  <app-custom-food (cancel)="showCustomFoodManagement = false" (foodItemCreated)="updateMealContent($event)"
+                   [isCustom]="false" [foodItem]="foodItem" [defaultServingSizes]="foodItem.alt_servings"
+                   [originalServingUnit]="foodItem.serving_size.unit"
+                   [showServing]="false"
+                   [isTemplateFood]="foodItem.is_custom_food_template || foodItem.is_custom"
+                   (mealIndexChanged)="mealIndex = $event" [mealIndex]="mealIndex">
+  </app-custom-food>
+</section>

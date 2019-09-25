@@ -1,0 +1,9 @@
+<div class="card">
+  <span class="title">{{categoryName}}</span>
+  <span class="value" [ngStyle]="{'color': percentage > 100 ? dangerColor : 'inherit'}">{{currentNutritionValue.toFixed(0)}}</span>
+  <div class="goal-bar">
+    <div class="progress"
+         [ngStyle]="{'width': (percentage > 100 ? 100 : percentage) + '%', 'background-color': changeBarColor }"></div>
+  </div>
+  <span class="goal"><span class="color">Goal</span>{{goalValue.toFixed(0)}}g</span>
+</div>

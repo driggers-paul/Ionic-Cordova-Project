@@ -1,0 +1,89 @@
+.login-content {
+  background-image: url('assets/splashbg.jpg');
+  background-size: initial;
+  background-repeat: repeat;
+
+  @media screen and (max-width: 768px) {
+    background-size: 175%;
+  }
+
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+
+  .item-input {
+    margin-bottom: var(--default-margin);
+  }
+
+  .forgot-password a {
+    float: right;
+    font-size: 12px;
+    padding: 10px 0;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+h4 {
+  text-align: center;
+  margin: 0 -10px;
+  letter-spacing: -1.5px;
+}
+
+.or {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 10px;
+  padding: 0;
+
+  &::after {
+    content: "";
+    background-color: #fff;
+    width: 80%;
+    flex: 1;
+    margin: 0 2%;
+    border: solid #e3e3e3;
+    border-width: 0.5px 0;
+  }
+
+  &::before {
+    content: "";
+    background-color: #fff;
+    width: 80%;
+    flex: 1;
+    margin: 0 2%;
+    border: solid #e3e3e3;
+    border-width: 0.5px 0;
+  }
+}
+
+.login-content > div {
+  background: rgba(255, 255, 255, .85);
+}
+
+.scroll-content {
+  overflow-y: hidden !important;
+}
+
+.login-content {
+  padding-top: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-content > div {
+  //margin: 25% auto 0 auto;
+  width: 90%;
+  height: 85%;
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 769px) {
+  .login-content > div {
+    //margin: 25% auto 0 auto;
+    width: 50%;
+    height: 70%;
+    padding: 0 32px;
+  }
+}

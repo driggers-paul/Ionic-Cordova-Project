@@ -1,0 +1,26 @@
+<section class="card">
+  <div class="header" *ngIf="showHeader">
+    <div>{{topLeft || 'Macros'}}</div>
+    <div class="dim">{{ topRight || 'Goal' }}<span *ngIf="isCustom">*</span></div>
+  </div>
+  <div class="macros">
+    <div class="calories">
+      <div class="val">{{ calories }}</div>
+      <div>calories</div>
+    </div>
+    <div class="protein">
+      <div class="val">{{ protein }}</div>
+      <div>Protein <em>(g)</em></div>
+    </div>
+    <div class="carbs">
+      <div class="val">{{ carbs }}</div>
+      <div>Carbs <em>(g)</em></div>
+    </div>
+    <div class="fats">
+      <div class="val">{{ fats }}</div>
+      <div>Fats <em>(g)</em></div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+  <small><strong class="dim" *ngIf="isCustom">Macros have been customized.</strong></small>
+</section>

@@ -1,0 +1,33 @@
+ion-input {
+  border-bottom: 1px solid var(--ion-color-brand-black);
+  width: 100px;
+  text-align: right;
+}
+
+ion-select {
+  width: 80px;
+  max-width: 100%;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .filter-label {
+    flex: 1 1 50%;
+  }
+}
+
+ion-list-header {
+  --background: var(--ion-color-header);
+}
+
+ion-label {
+  white-space: normal;
+}
+
+.header {
+  font-size: 14px;
+}
+

@@ -1,0 +1,13 @@
+<div class="progress-bar">
+  <div class="goal-bar">
+    <div class="progress" [ngStyle]="{'width': percentage + '%', 'background-color': changeBarColor}"></div>
+  </div>
+  <span><span class="color">{{currentValue}}/</span>{{ totalValue}}oz</span>
+</div>
+
+<!-- Add water  -->
+<div class="add-water">
+  <ion-button expand="full" fill="clear" (click)="addWater()">
+    <ion-icon name="add"></ion-icon> Add Water
+  </ion-button>
+</div>

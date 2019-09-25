@@ -1,0 +1,159 @@
+<section class="header">
+  <h5>
+    Edit Macros
+    <ion-button fill="clear" type="icon" (click)="close()">
+      <ion-icon name="close" mode="md"></ion-icon>
+    </ion-button>
+  </h5>
+</section>
+<ion-content>
+  <div class="info" padding *ngIf="showDidYouKnow">
+    <p class="did-you-know">When adjusting your macros there are some important things you need to know and
+      understand.</p>
+    <h5>Fat</h5>
+    <p>Fat is an essential part of your diet and necessary for good health. It is important to maintain a minimum amount
+      of fat in the diet as fat has many roles such as helping to absorb and transport fat-soluble vitamins A, D, E and
+      K.
+      The body needs fat to properly absorb these vitamins which are necessary for the healthy of your bones, skin,
+      cardiovascular system, along with other organs and systems.</p>
+
+    <p>Fat provides our bodies with essential fatty acids which are required to build and maintain our cell membranes,
+      which is important for skin, hair, eyes, heart, brain and much more.</p>
+
+    <p>Fat is important in manufacturing and balancing hormone levels.</p>
+
+    <p>Fat is also a fuel source. So when choose low fat make sure you have another carbs (our other fuel source) in
+      your
+      diet.</p>
+
+    <p>Some signs and symptoms of too lower of fat in the diet included but are not limited to. Dry eyes, dry and scaly
+      skin, dry hair and/or hair loss, normal problems, including loss of menstrual cycle, inability to feel full/always
+      feeling hungry, issues concentrating and/or mental fatigue, constant fatigue, deficiencies in fat-soluble
+      vitamins.</p>
+
+    <p>We recommend that you do not go under 40 grams for females and 50 grams for males.</p>
+
+    <h5>Carbs</h5>
+    <p>Carbs are a fuel source for your body and the need for carbs is based heavily on your activity level and training
+      style. Carbs are the main fuel source for traditional weight lifting and high intensity or high intensity interval
+      training. You body is also very good at utilizing carbs for everyday tasks and natural energy levels.</p>
+
+    <p>Generally we recommend that you do not go below 100 grams for females and 120 grams for males, however, going
+      below
+      those numbers does not pose a health risk as long as your fat sources are high enough to provide your body the
+      fuel
+      you need.</p>
+
+    <h5>Protein</h5>
+    <p>Protein in vital to health and fitness results. It is the catalyst for gaining or maintaining lean muscle as well
+      as burning fat. You always want to make sure your protein intake is high enough and that you are eating protein or
+      drinking a protein shake every few hours.</p>
+    <p>We recommend that your protein be set between .8 and 1.2 grams per pound of your <strong>goal</strong> body weight.</p>
+
+    <p>If you have any specific questions feel free to contact our registered dietitian for free.</p>
+    <ion-button margin-bottom
+                expand="full"
+                href="mailto:jeremy@1stphorm.com?subject=Question+about+macros">Email jeremy@1stphorm.com
+      <ion-icon name="mail-open" slot="end"></ion-icon>
+    </ion-button>
+
+    <div>
+      <ion-button class="dont-show-again" fill="clear" (click)="setDidYouKnow()">Don't Show Again</ion-button>
+      <ion-button class="learn-more" float-right shape="round" (click)="hide()">Hide</ion-button>
+    </div>
+  </div>
+  <div class="history" *ngIf="customMacros.length > 0" margin-top>
+    <h6 text-capitalize text-center (click)="showHistory = !showHistory">
+      {{ showHistory ? '' : 'Show' }} Edit History
+      <ion-button fill="clear">
+        <ion-icon name="{{ showHistory ? 'arrow-down' : 'arrow-forward' }}" mode="ios"></ion-icon>
+      </ion-button>
+    </h6>
+    <div [class.hide]="!showHistory">
+      <p class="legend">Reverted to original <sub>
+        <ion-icon name="refresh"></ion-icon>
+      </sub></p>
+      <div class="grid">
+        <div class="row heading">
+          <div class="col">Date</div>
+          <div class="col">Calories</div>
+          <div class="col">Protein</div>
+          <div class="col">Carbs</div>
+          <div class="col">Fats</div>
+        </div>
+        <ng-container *ngFor="let customMacro of customMacros; let i = index">
+          <ng-container *ngIf="i < showMoreHistoryOffset || showMoreHistory === true">
+            <div class="row values">
+              <div class="col macro-date">{{ customMacro.edit_date.format('M/D/YY') }}
+                <sub *ngIf="customMacro.reset_to_original">
+                  <ion-icon name="refresh"></ion-icon>
+                </sub></div>
+              <div class="col calories" text-center>{{ customMacro.calories }}</div>
+              <div class="col protein" text-center>{{ customMacro.protein }}</div>
+              <div class="col carbs" text-center>{{ customMacro.carbs }}</div>
+              <div class="col fats" text-center>{{ customMacro.fats }}</div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div class="show-more" *ngIf="customMacros.length > showMoreHistoryOffset">
+        <ion-button fill="clear" color="primary" (click)="showMoreHistory = !showMoreHistory">
+          Show {{ showMoreHistory ? 'Less' : 'More' }}</ion-button>
+        <p>Showing {{ !showMoreHistory ? showMoreHistoryOffset : customMacros.length }} of {{ customMacros.length }}
+          changes</p>
+      </div>
+    </div>
+  </div>
+  <p class="singe-macro-history" *ngIf="!showHistory && customMacros.length > 0">Last edit
+    on {{ customMacros[0].edit_date.format('M/D/YY') }} by you</p>
+  <h5 text-center text-uppercase margin-top margin-bottom>{{ isOriginal ? 'Suggested Macros' : 'Custom Macros' }}</h5>
+  <div class="macro-editing">
+    <form [formGroup]="form">
+      <div class="global-input">
+        <ion-label>Calories</ion-label>
+        <ion-input text-center type="number" formControlName="calories"></ion-input>
+      </div>
+      <div class="macro-inputs">
+        <ion-label text-uppercase>Macros</ion-label>
+        <div class="grid">
+          <div class="row">
+            <div class="col">
+              <ion-input text-center type="number" formControlName="protein" class="protein"></ion-input>
+              <ion-label>Protein (<span text-lowercase>g</span>)</ion-label>
+            </div>
+            <div class="col">
+              <ion-input text-center type="number" formControlName="carbs" class="carbs"></ion-input>
+              <ion-label>Carbs (<span text-lowercase>g</span>)</ion-label>
+            </div>
+            <div class="col">
+              <ion-input text-center type="number" formControlName="fats" class="fats"></ion-input>
+              <ion-label>Fats (<span text-lowercase>g</span>)</ion-label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div *ngIf="isOriginal" class="edit-action" padding>
+    <ion-button fill="outline" expand="full" (click)="setEditMode()">Edit</ion-button>
+  </div>
+  <div *ngIf="!isOriginal" class="custom-actions">
+    <div class="grid">
+      <div class="row">
+        <div class="col">
+          <ion-button color="danger" fill="clear" *ngIf="activeMacro" (click)="revertToOriginal()" text-wrap>Reset to
+            suggested
+          </ion-button>
+        </div>
+        <div class="col" text-center>
+          <ion-button fill="clear" (click)="close()">Cancel</ion-button>
+        </div>
+        <div class="col" text-center>
+          <ion-button (click)="saveCustomMacroSetting()" [disabled]="form.pristine || form.invalid">Save</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

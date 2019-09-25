@@ -1,0 +1,25 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,900" rel="stylesheet">
+<ion-content class="global-container splash-bg">
+  <div class="login-content">
+    <div>
+      <app-logo></app-logo>
+      <h4>My Transphormation<br/>Starts Today</h4>
+      <form class="global-margin-top-20" [formGroup]="form" (ngSubmit)="login()">
+        <div class="global-input">
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="email" inputmode="email" formControlName="email"
+                     [color]="errorHandler.stateColor(form.get('email'))"></ion-input>
+        </div>
+        <div class="global-input">
+          <ion-label stacked>Password</ion-label>
+          <ion-input type="password" formControlName="password"
+                     [color]="errorHandler.stateColor(form.get('password'))"></ion-input>
+        </div>
+        <ion-button class="global-margin-top-20" expand="full" (click)="login()" [disabled]="form.invalid">
+          Sign
+          in to my account
+        </ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

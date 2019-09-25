@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "502937920884",
+    "firebase_url": "https://mtst-1p.firebaseio.com",
+    "project_id": "mtst-1p",
+    "storage_bucket": "mtst-1p.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502937920884:android:f06de1f17a7de736",
+        "android_client_info": {
+          "package_name": "com.firstphorm.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502937920884-8n55se8gv9h2fsp41pk43e659u73jugv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKiGIG-KHk27O-5MifnNgYQFdIMa-mIiU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502937920884:android:cd41f9d329045ce1",
+        "android_client_info": {
+          "package_name": "com.firstphorm.apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502937920884-8n55se8gv9h2fsp41pk43e659u73jugv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKiGIG-KHk27O-5MifnNgYQFdIMa-mIiU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

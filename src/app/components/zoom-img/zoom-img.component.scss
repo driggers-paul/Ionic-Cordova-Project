@@ -1,0 +1,14 @@
+ion-button {
+  --border-radius: 50% !important;
+  --background: #ffffff !important;
+}
+.zoomable-img {
+  height: 90%;
+  width: 100%;
+  object-fit: contain;
+}
+
+ion-content {
+  height: 100vh;
+  --background: #000;
+}

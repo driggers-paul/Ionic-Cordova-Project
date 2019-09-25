@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Take Photos</ion-title>
+    <ion-buttons slot="start">
+      <app-menu-button></app-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div *ngIf="showButtons" class="which-photo">{{ whichPhoto }}</div>
+<div *ngIf="countDown" id="countdown-timer" class="countdown">{{ countDown }}</div>
+
+<app-camera-buttons
+        *ngIf="showButtons"
+        [flashOn]="cameraFlashActive"
+        [delayTimerRunning]="delayTimerRunning"
+        (flashChange)="flashChange()"
+        (swapCamera)="swapCamera()"
+        (delayTimerCancelled)="cancelDelayTimer()"
+        (takePictureWithDelay)="takePictureWithDelay(5)"
+        (takePicture)="takePicture()"
+></app-camera-buttons>
+
+<div [style.display]="showButtons ? 'block' : 'none'" id="camera-preview"></div>
+
+<ion-content [ngStyle]="{'display': hideContent}">
+  <app-preview-img
+          *ngIf="showPreview"
+          [title]="whichPhoto"
+          [file]="currentImage"
+          (retake)="back()"
+          (complete)="advance()"></app-preview-img>
+
+  <app-upload-img
+          *ngIf="finish"
+          [frontImage]="frontImage"
+          [backImage]="backImage"
+          [sideImage]="sideImage"
+          (complete)="uploadComplete($event)"
+          (retake)="retakeAll()"
+          [hideExtraFields]="hideExtraFields">
+  </app-upload-img>
+
+</ion-content>

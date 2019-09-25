@@ -1,0 +1,20 @@
+<div class="buttons">
+  <ion-button *ngIf="!delayTimerRunning" fill="clear" [class.active]="flashOn" (click)="flashCameraAction()">
+    <ion-icon name="flash"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="!delayTimerRunning" fill="clear" (click)="takePictureWithDelayAction()">
+    <ion-icon name="timer"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="delayTimerRunning" fill="clear" (click)="takePictureWithDelayAction()">
+    +5s
+  </ion-button>
+  <ion-button *ngIf="delayTimerRunning" fill="clear" (click)="cancelDelayTimer()">
+    <ion-icon name="close-circle-outline"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="!delayTimerRunning" fill="clear" (click)="captureImageAction()">
+    <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="!delayTimerRunning" fill="clear" (click)="swapCameraAction()">
+    <ion-icon name="reverse-camera"></ion-icon>
+  </ion-button>
+</div>

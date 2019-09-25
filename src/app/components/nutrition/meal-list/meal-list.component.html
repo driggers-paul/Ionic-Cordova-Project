@@ -1,0 +1,15 @@
+<section class="meal">
+  <div class="row">
+    <div class="col-1"><span class="title">Meal</span></div>
+    <div class="col-2"><span class="title">calories</span></div>
+    <div class="col-2"><span class="title">protein</span></div>
+    <div class="col-2"><span class="title">carbs</span></div>
+    <div class="col-2"><span class="title">fats</span></div>
+    <div class="col-space"></div>
+  </div>
+  <div class="meal-quantity">
+    <ng-container *ngFor="let meal of meals">
+      <app-meal-item [nutritionDayId]="nutritionDayId" [meal]="meal" (mealUpdated)="mealUpdated.emit($event)"></app-meal-item>
+    </ng-container>
+  </div>
+</section>

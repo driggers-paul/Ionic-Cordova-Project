@@ -1,0 +1,10 @@
+.app-info {
+  font-size: 10px;
+}
+
+ion-label + span.description {
+  margin: -8px 0 10px 0;
+  display: block;
+  font-size: 12px;
+  color: var(--ion-color-text);
+}

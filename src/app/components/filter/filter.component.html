@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Filter page</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <p class="header">Apply one or more of the filters to the current list...</p>
+  <form [formGroup]="form">
+    <div class="inline">
+      <ion-label class="filter-label">Workout out in the last</ion-label>
+      <ion-input type="number" formControlName="activeDays"></ion-input>
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Uploaded Photos within (days)</ion-label>
+      <ion-input type="number" formControlName="uploadDays"></ion-input>
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Haven't Uploaded Photos within (days)</ion-label>
+      <ion-input type="number" formControlName="haveNotUploadDays"></ion-input>
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Joined my team in last (days)</ion-label>
+      <ion-input type="number" formControlName="joinedDays"></ion-input>
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Is my Customer for Life</ion-label>
+      <ion-item>
+        <ion-select formControlName="customer_for_life">
+          <ion-select-option value="">N/A</ion-select-option>
+          <ion-select-option [value]="true">Yes</ion-select-option>
+          <ion-select-option [value]="false">No</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Is Premium Subscriber</ion-label>
+      <ion-item>
+        <ion-select formControlName="is_premium">
+          <ion-select-option value="">N/A</ion-select-option>
+          <ion-select-option [value]="true">Yes</ion-select-option>
+          <ion-select-option [value]="false">No</ion-select-option>
+        </ion-select>
+      </ion-item>
+<!--      <ion-toggle formControlName="is_premium"></ion-toggle>-->
+    </div>
+    <div class="inline">
+      <ion-label class="filter-label">Have not messaged in</ion-label>
+      <ion-input type="number" formControlName="not_messaged_in"></ion-input>
+    </div>
+    <div class="button global-margin-top-25">
+      <ion-button type="button" color="primary" expand="full" (click)="applyFilter()">Apply</ion-button>
+    </div>
+    <div class="button global-margin-top-15">
+      <ion-button type="button" color="primary" expand="full" (click)="clear()">Clear</ion-button>
+    </div>
+  </form>
+</ion-content>

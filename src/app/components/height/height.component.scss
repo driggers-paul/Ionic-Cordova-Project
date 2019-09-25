@@ -1,0 +1,15 @@
+.height-container {
+  position: relative;
+  ion-input {
+    position: relative;
+    z-index: 1;
+    border-bottom: none;
+  }
+  .input-container {
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 57px;
+    z-index: 10;
+  }
+}
