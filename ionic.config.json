@@ -1,8 +1,7 @@
 {
-  "name": "mtst",
+  "name": "testPlugin_Final",
   "integrations": {
     "cordova": {}
   },
-  "type": "angular",
-  "id": "594e0506"
+  "type": "angular"
 }
